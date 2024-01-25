@@ -1,7 +1,6 @@
 // AuthContext.tsx
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import firebase from '../../firebaseConfig';
 
 // Define types for user and auth context
 interface User {

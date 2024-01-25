@@ -20,7 +20,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // AuthProvider component
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider: React.FC = ({ children } : React.PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {

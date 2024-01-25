@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
+import { getAuth } from 'firebase/auth';
+import SignIn from './SignIn';
+import Home from './Home';
 
 const App: FC = () => {
 	return (
-		<h1 onClick={() => console.log("H1 clicked")}>Hello React!</h1> 
+		<>
+			{getAuth().currentUser ? <SignIn /> : <Home />}
+		</>
 	);
 };
 

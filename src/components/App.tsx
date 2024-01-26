@@ -6,7 +6,7 @@ import Home from './Home';
 const App: FC = () => {
 	return (
 		<>
-			{getAuth().currentUser ? <SignIn /> : <Home />}
+			{getAuth().currentUser ? <Home /> : <SignIn /> }
 		</>
 	);
 };

@@ -4,10 +4,8 @@ import { initializeApp } from "firebase/app";
 import './index.css'
 import App from './components/App'
 import firebaseConfig from './firebaseConfig';
-import { getAuth } from 'firebase/auth';
 
-const app = initializeApp(firebaseConfig);
-console.log(getAuth().currentUser)
+initializeApp(firebaseConfig);
 
 const container = document.getElementById('app-root')!
 const root = createRoot(container)

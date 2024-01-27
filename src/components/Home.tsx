@@ -5,6 +5,7 @@ const Home: FC = () => {
 	return (
 		<>
             {getAuth().currentUser+" is currently signed in."}
+			<button>Sign Out</button>
 		</>
 	);
 };

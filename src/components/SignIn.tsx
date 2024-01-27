@@ -6,6 +6,7 @@ const SignIn: FC = () => {
 			<input placeholder="e-mail" type="email"/>
             <input placeholder="password" type="password"/>
 			<button>Log In</button>
+			<button>Sign In</button>
 		</>
 	);
 };

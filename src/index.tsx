@@ -13,8 +13,6 @@ const container = document.getElementById('app-root')!
 const root = createRoot(container)
 root.render(
     <React.StrictMode>
-            <MemoryRouter>
-                <App />
-            </MemoryRouter>
+        <App />
     </React.StrictMode>
 )

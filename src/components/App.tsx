@@ -2,7 +2,7 @@ import { getAuth } from 'firebase/auth';
 import React, { FC } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
-import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 const App: FC = () => {
 
@@ -16,7 +16,7 @@ const App: FC = () => {
 
 	if (user) return (<Home/>);
 
-	if (!user)return (<SignIn />);
+	if (!user)return (<SignUp />);
 };
 
 export default App;

@@ -1,9 +1,10 @@
+import { getApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { FC, useRef, useState } from "react";
 
 const SignUp: FC = () => {
 
-	const [signupHidden, toggleSignupVisibility] = useState<boolean>(false);
+	const [signupHidden, toggleSignupVisibility] = useState<boolean>(true);
 
 	const usernameField = useRef<HTMLInputElement>(null);
 	const emailField = useRef<HTMLInputElement>(null);
@@ -11,12 +12,12 @@ const SignUp: FC = () => {
 
 	const handleLogIn = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
-		signInWithEmailAndPassword(getAuth(), emailField.current!.value, passwordField.current!.value);
+		signInWithEmailAndPassword(getAuth(getApp()), emailField.current!.value, passwordField.current!.value);
 	}
 
 	const handleSignUp = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
-		if (!signupHidden) createUserWithEmailAndPassword(getAuth(), emailField.current!.value, passwordField.current!.value);
+		if (!signupHidden) createUserWithEmailAndPassword(getAuth(getApp()), emailField.current!.value, passwordField.current!.value);
 		toggleSignupVisibility(!signupHidden);
 	}
 

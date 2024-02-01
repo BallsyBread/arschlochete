@@ -1,6 +1,7 @@
 import { getApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { FC, useRef, useState } from "react";
+import LoginButton from "../LoginButton";
 
 const SignUp: FC = () => {
 
@@ -36,7 +37,7 @@ const SignUp: FC = () => {
 			<input placeholder="username" type="text" ref={usernameField} hidden={signupHidden}/>
 			<input placeholder="e-mail" type="email" ref={emailField}/>
             <input placeholder="password" type="password" ref={passwordField}/>
-			<button onClick={handleLogIn}>Log In</button>
+			<LoginButton emailField={emailField} passwordField={passwordField}/>
 			<button onClick={handleSignUp}>{signupHidden ? "Create Account" : "Sign Up"}</button>
 		</>
 	);

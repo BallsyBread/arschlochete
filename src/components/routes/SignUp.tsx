@@ -7,15 +7,15 @@ const SignUp: FC = () => {
 	const app = getApp();
 	const auth = getAuth(app);
 
+	const usernameField = useRef<HTMLInputElement>(null);
+	const emailField = useRef<HTMLInputElement>(null);
+	const passwordField = useRef<HTMLInputElement>(null);
+
 	const [signupHidden, setSignupVisibility] = useState<boolean>(true);
 
 	const toggleSignUpVisibility = () => {
 		setSignupVisibility(!signupHidden);
 	}
-
-	const usernameField = useRef<HTMLInputElement>(null);
-	const emailField = useRef<HTMLInputElement>(null);
-	const passwordField = useRef<HTMLInputElement>(null);
 
 	const handleLogIn = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();

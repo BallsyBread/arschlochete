@@ -18,13 +18,6 @@ const SignUp: FC = () => {
 		setSignupVisibility(!signupHidden);
 	}
 
-	const handleLogIn = (event : React.MouseEvent<HTMLButtonElement> ) => {
-		event.preventDefault();
-		signInWithEmailAndPassword(auth, emailRef.current!.value, passwordRef.current!.value)
-			.then(credential => console.log(credential.user.email+" just signed in"))
-			.catch(error => alert(error));
-	}
-
 	const handleSignUp = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
 		if (!signupHidden) createUserWithEmailAndPassword(auth, emailRef.current!.value, passwordRef.current!.value)

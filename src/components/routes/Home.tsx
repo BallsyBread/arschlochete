@@ -1,10 +1,15 @@
+import { getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import React, { FC } from "react";
 
 const Home: FC = () => {
+
+	const app = getApp();
+	const auth = getAuth(app);
+
 	return (
 		<>
-            {getAuth().currentUser?.email+" is currently signed in."}
+            {auth.currentUser?.email+" is currently signed in."}
 			<button>Sign Out</button>
 		</>
 	);

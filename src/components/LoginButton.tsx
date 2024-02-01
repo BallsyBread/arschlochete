@@ -23,7 +23,6 @@ const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField}) => {
         <button onClick={handleLogIn}>Log In</button>
 	);
 
-
 };
 
 export default LoginButton;

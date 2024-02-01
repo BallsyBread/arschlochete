@@ -4,6 +4,9 @@ import React, { FC, useRef, useState } from "react";
 
 const SignUp: FC = () => {
 
+	const app = getApp();
+	const auth = getAuth(app);
+
 	const [signupHidden, toggleSignupVisibility] = useState<boolean>(true);
 
 	const usernameField = useRef<HTMLInputElement>(null);
@@ -12,12 +15,12 @@ const SignUp: FC = () => {
 
 	const handleLogIn = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
-		signInWithEmailAndPassword(getAuth(getApp()), emailField.current!.value, passwordField.current!.value).catch(error => alert(error));
+		signInWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value).catch(error => alert(error));
 	}
 
 	const handleSignUp = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
-		if (!signupHidden) createUserWithEmailAndPassword(getAuth(getApp()), emailField.current!.value, passwordField.current!.value).catch(error => alert(error));
+		if (!signupHidden) createUserWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value).catch(error => alert(error));
 		toggleSignupVisibility(!signupHidden);
 	}
 

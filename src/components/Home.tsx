@@ -4,7 +4,7 @@ import React, { FC } from "react";
 const Home: FC = () => {
 	return (
 		<>
-            {getAuth().currentUser+" is currently signed in."}
+            {getAuth().currentUser?.email+" is currently signed in."}
 			<button>Sign Out</button>
 		</>
 	);

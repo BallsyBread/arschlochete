@@ -2,6 +2,7 @@ import { getApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { FC, useRef, useState } from "react";
 import LoginButton from "../LoginButton";
+import SignUpButton from "../SignUpButton";
 
 const SignUp: FC = () => {
 
@@ -14,24 +15,21 @@ const SignUp: FC = () => {
 
 	const [signupHidden, setSignupVisibility] = useState<boolean>(true);
 
-	const toggleSignUpVisibility = () => {
-		setSignupVisibility(!signupHidden);
-	}
-
-	const handleSignUp = (event : React.MouseEvent<HTMLButtonElement> ) => {
-		event.preventDefault();
-		if (!signupHidden) createUserWithEmailAndPassword(auth, emailRef.current!.value, passwordRef.current!.value)
-			.catch(error => alert(error));
-		toggleSignUpVisibility();
-	}
-
 	return (
 		<>
 			<input placeholder="username" type="text" ref={usernameRef} hidden={signupHidden}/>
 			<input placeholder="e-mail" type="email" ref={emailRef}/>
             <input placeholder="password" type="password" ref={passwordRef}/>
-			<LoginButton emailField={emailRef} passwordField={passwordRef}/>
-			<button onClick={handleSignUp}>{signupHidden ? "Create Account" : "Sign Up"}</button>
+			<LoginButton
+				emailField={emailRef}
+				passwordField={passwordRef}
+			/>
+			<SignUpButton
+				emailField={emailRef}
+				passwordField={passwordRef}
+				signupHidden={false}
+				toggleSignUpVisibility={() => setSignupVisibility(!signupHidden)}
+			/>
 		</>
 	);
 };

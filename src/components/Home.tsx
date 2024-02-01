@@ -1,10 +1,10 @@
-import { getAuth } from "firebase/auth";
 import React, { FC } from "react";
+import { auth } from "../firebaseConfig";
 
 const Home: FC = () => {
 	return (
 		<>
-            {getAuth().currentUser+" is currently signed in."}
+            {auth.currentUser+" is currently signed in."}
 			<button>Sign Out</button>
 		</>
 	);

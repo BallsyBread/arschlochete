@@ -1,13 +1,8 @@
-import { getApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { FC, useRef, useState } from "react";
 import LoginButton from "../LoginButton";
 import SignUpButton from "../SignUpButton";
 
 const SignUp: FC = () => {
-
-	const app = getApp();
-	const auth = getAuth(app);
 
 	const usernameRef = useRef<HTMLInputElement>(null);
 	const emailRef = useRef<HTMLInputElement>(null);
@@ -27,7 +22,7 @@ const SignUp: FC = () => {
 			<SignUpButton
 				emailField={emailRef}
 				passwordField={passwordRef}
-				signupHidden={false}
+				signupHidden={signupHidden}
 				toggleSignUpVisibility={() => setSignupVisibility(!signupHidden)}
 			/>
 		</>

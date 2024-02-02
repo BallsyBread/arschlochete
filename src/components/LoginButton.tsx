@@ -4,10 +4,12 @@ import React, { FC } from "react";
 
 interface LoginButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
-    passwordField: React.RefObject<HTMLInputElement>
+    passwordField: React.RefObject<HTMLInputElement>,
+    registring: boolean,
+    toggleRegistring: () => void
 }
 
-const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField}) => {
+const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField, registring, toggleRegistring}) => {
 
     const app = getApp();
     const auth = getAuth(app);
@@ -18,8 +20,11 @@ const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField}) => {
 			.catch(error => alert(error));
 	}
 
+    const onClickHandler = registring ? toggleRegistring : handleLogIn;
+    const buttonText = registring ? "Back" : "Log In";
+
 	return (
-        <button onClick={handleLogIn}>Log In</button>
+        <button onClick={onClickHandler}>{buttonText}</button>
 	);
 
 };

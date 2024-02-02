@@ -8,22 +8,24 @@ const SignUp: FC = () => {
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
 
-	const [signupHidden, setSignupVisibility] = useState<boolean>(true);
+	const [registring, setRegistring] = useState<boolean>(false);
 
 	return (
 		<>
-			<input placeholder="username" type="text" ref={usernameRef} hidden={signupHidden}/>
+			<input placeholder="username" type="text" ref={usernameRef} hidden={!registring}/>
 			<input placeholder="e-mail" type="email" ref={emailRef}/>
             <input placeholder="password" type="password" ref={passwordRef}/>
 			<LoginButton
 				emailField={emailRef}
 				passwordField={passwordRef}
+				registring={registring}
+				toggleRegistring={() => setRegistring(!registring)}
 			/>
         	<SignUpButton
 				emailField={emailRef}
 				passwordField={passwordRef}
-				signupHidden={signupHidden}
-				onCreateAccount={() => setSignupVisibility(!signupHidden)}
+				registring={registring}
+				toggleRegistring={() => setRegistring(!registring)}
 			/>
 		</>
 	);

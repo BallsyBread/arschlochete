@@ -15,7 +15,6 @@ const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField}) => {
 	const handleLogIn = (event : React.MouseEvent<HTMLButtonElement> ) => {
 		event.preventDefault();
 		signInWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value)
-			.then(credential => console.log(credential.user.email+" just signed in"))
 			.catch(error => alert(error));
 	}
 

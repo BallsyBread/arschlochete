@@ -7,10 +7,15 @@ const Home: FC = () => {
 	const app = getApp();
 	const auth = getAuth(app);
 
+	const handleSignOut = (event : React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		auth.signOut();
+	}
+
 	return (
 		<>
             {auth.currentUser?.email+" is currently signed in."}
-			<button>Sign Out</button>
+			<button onClick={handleSignOut}>Sign Out</button>
 		</>
 	);
 };

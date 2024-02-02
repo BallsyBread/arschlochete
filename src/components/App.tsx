@@ -1,13 +1,16 @@
 import { getAuth } from 'firebase/auth';
 import React, { FC } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Home from './Home';
-import SignUp from './SignUp';
+import Home from './routes/Home';
+import SignUp from './routes/SignUp';
 import { getApp } from 'firebase/app';
 
 const App: FC = () => {
 
-	const [user, loading] = useAuthState(getAuth(getApp()));
+	const app = getApp();
+	const auth = getAuth(app);
+
+	const [user, loading] = useAuthState(auth);
 
 	if (loading) return (
 		<>

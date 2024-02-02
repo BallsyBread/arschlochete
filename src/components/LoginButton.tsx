@@ -6,7 +6,7 @@ interface LoginButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
     passwordField: React.RefObject<HTMLInputElement>,
     registring: boolean,
-    toggleRegistring: () => void
+    toggleRegistring: (event : React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField, registring, toggleRegistring}) => {
@@ -20,11 +20,10 @@ const LoginButton: FC<LoginButtonProps> = ({emailField, passwordField, registrin
 			.catch(error => alert(error));
 	}
 
-    const onClickHandler = registring ? toggleRegistring : handleLogIn;
-    const buttonText = registring ? "Back" : "Log In";
-
 	return (
-        <button onClick={onClickHandler}>{buttonText}</button>
+        <button onClick={registring ? toggleRegistring : handleLogIn}>
+            {registring ? "Back" : "Log In"}
+        </button>
 	);
 
 };

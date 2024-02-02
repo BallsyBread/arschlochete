@@ -6,7 +6,7 @@ interface SignUpButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
     passwordField: React.RefObject<HTMLInputElement>,
     registring: boolean,
-    toggleRegistring: () => void
+    toggleRegistring: (event : React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registring, toggleRegistring}) => {
@@ -20,11 +20,10 @@ const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registr
 			.catch(error => alert(error));
 	}
 
-    const onClickHandler = registring ? handleSignUp : toggleRegistring;
-    const buttonText = registring ? "Sign Up" : "Create Account";
-
 	return (
-        <button onClick={onClickHandler}>{buttonText}</button>
+        <button onClick={registring ? handleSignUp : toggleRegistring}>
+            {registring ? "Sign Up" : "Create Account"}
+        </button>
 	);
 
 };

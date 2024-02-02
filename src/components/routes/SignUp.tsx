@@ -10,6 +10,11 @@ const SignUp: FC = () => {
 
 	const [registring, setRegistring] = useState<boolean>(false);
 
+	const handleRegistring = (event : React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		setRegistring(!registring);
+	}
+
 	return (
 		<>
 			<input placeholder="username" type="text" ref={usernameRef} hidden={!registring}/>
@@ -19,13 +24,13 @@ const SignUp: FC = () => {
 				emailField={emailRef}
 				passwordField={passwordRef}
 				registring={registring}
-				toggleRegistring={() => setRegistring(!registring)}
+				toggleRegistring={handleRegistring}
 			/>
         	<SignUpButton
 				emailField={emailRef}
 				passwordField={passwordRef}
 				registring={registring}
-				toggleRegistring={() => setRegistring(!registring)}
+				toggleRegistring={handleRegistring}
 			/>
 		</>
 	);

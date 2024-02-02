@@ -25,8 +25,6 @@ const SignUp: FC = () => {
 				signupHidden={signupHidden}
 				onCreateAccount={() => setSignupVisibility(!signupHidden)}
 			/>
-
-
 		</>
 	);
 };

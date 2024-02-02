@@ -19,7 +19,7 @@ const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registr
     const handleSignUp = (event : React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		createUserWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value)
-        .then(credentials => addDoc(collection(db, 'users'), { uid: credentials.user.uid, email: credentials.user.email }))
+            .then(credentials => addDoc(collection(db, 'users'), { uid: credentials.user.uid, email: credentials.user.email }))
 			.catch(error => alert(error));
 	}
 

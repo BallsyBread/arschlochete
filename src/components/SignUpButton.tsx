@@ -4,12 +4,12 @@ import React, { FC } from "react";
 
 interface SignUpButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
-    passwordField: React.RefObject<HTMLInputElement>
+    passwordField: React.RefObject<HTMLInputElement>,
     signupHidden: boolean,
-    toggleSignUpVisibility: () => void
+    onCreateAccount: () => void
 }
 
-const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, signupHidden, toggleSignUpVisibility}) => {
+const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, signupHidden, onCreateAccount}) => {
 
     const app = getApp();
     const auth = getAuth(app);
@@ -18,7 +18,7 @@ const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, signupH
 		event.preventDefault();
 		if (!signupHidden) createUserWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value)
 			.catch(error => alert(error));
-        toggleSignUpVisibility();
+        onCreateAccount();
 	}
 
 	return (

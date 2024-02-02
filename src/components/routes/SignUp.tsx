@@ -19,12 +19,14 @@ const SignUp: FC = () => {
 				emailField={emailRef}
 				passwordField={passwordRef}
 			/>
-			<SignUpButton
+        	<SignUpButton
 				emailField={emailRef}
 				passwordField={passwordRef}
 				signupHidden={signupHidden}
-				toggleSignUpVisibility={() => setSignupVisibility(!signupHidden)}
+				onCreateAccount={() => setSignupVisibility(!signupHidden)}
 			/>
+
+
 		</>
 	);
 };

@@ -1,7 +1,7 @@
 import { getApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import React, { FC } from "react";
-import createUserAccount from "../services/UserService";
+import createUserData from "../services/UserService";
 
 interface SignUpButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
@@ -18,7 +18,7 @@ const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registr
     const handleSignUp = (event : React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		createUserWithEmailAndPassword(auth, emailField.current!.value, passwordField.current!.value)
-            .then(credentials => createUserAccount(credentials))
+            .then(credentials => createUserData(credentials))
 			.catch(error => alert(error));
 	}
 

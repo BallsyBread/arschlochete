@@ -10,7 +10,7 @@ interface SignUpButtonProps {
     toggleRegistring: (event : React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registring, toggleRegistring}) => {
+const RegisterButton: FC<SignUpButtonProps> = ({emailField, passwordField, registring, toggleRegistring}) => {
 
     const app = getApp();
     const auth = getAuth(app);
@@ -30,4 +30,4 @@ const SignUpButton: FC<SignUpButtonProps> = ({emailField, passwordField, registr
 
 };
 
-export default SignUpButton;
+export default RegisterButton;

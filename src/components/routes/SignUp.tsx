@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from "react";
 import LoginButton from "../LoginButton";
-import SignUpButton from "../SignUpButton";
+import RegisterButton from "../RegisterButton";
 
 const SignUp: FC = () => {
 
@@ -26,7 +26,7 @@ const SignUp: FC = () => {
 				registring={registring}
 				toggleRegistring={handleRegistring}
 			/>
-        	<SignUpButton
+        	<RegisterButton
 				emailField={emailRef}
 				passwordField={passwordRef}
 				registring={registring}

@@ -1,7 +1,7 @@
 import { getApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import React, { FC } from "react";
-import createUserAccount from "../services/userService";
+import createUserAccount from "../services/UserService";
 
 interface SignUpButtonProps {
     emailField: React.RefObject<HTMLInputElement>,
